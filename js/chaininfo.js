@@ -1,5 +1,3 @@
-var api
-var prefix
 var href
 window.onload = function (){
     var getaddress = localStorage.getItem("address")
@@ -9,18 +7,24 @@ window.onload = function (){
     apiget = localStorage.getItem("apiSet")
 
     // Set history page to open to explorer according to mainnet or testnet & set ticker according to mainnet or testnet
-    if (apiget == "mainnet" || apiget == null) {
-        api = "https://api.sugarchain.org"
-        prefix = "SUGAR"
+    /*if (apiget == "mainnet" || apiget == null) {
+        api = "https://api.mbc.wiki"
+        prefix = "MBC"
         href = "https://sugarchain.org/explorer/#/address/" + getaddress
         $("#history").attr("href", href)
     }
     else if (apiget == "testnet"){
-        api = "https://api-testnet.sugarchain.org"
-        prefix = "TUGAR"
+        api = "https://api.mbc.wiki/test"
+        prefix = "TMBC"
         href = "https://sugar.wtf/#/" + getaddress
         $("#history").attr("href", href)
-    }
+    }*/
+    var api = "https://api.mbc.wiki"
+    var prefix = "MBC"
+
+    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+
+    $("#history").attr("href", href)
 
     // Define function to make api request according to certain call
     function apiCall(call) {
@@ -47,19 +51,32 @@ window.onload = function (){
     }
 
     function getSupply() {
-        apiCall("/info").then(function(data) {
+        apiCall("/supply").then(function(data) {
             var getsupply = data.result.supply
-            var supply = getsupply / 100000000
+            var supply = getsupply / 10000
             $("#circSupply").text(supply + " " + prefix)
         })
     }
 
-    function getPrice() {
-        apiCall("/price").then(function(data) {
-            var usd = data.result.usd
-            var btc = Number(data.result.btc).toLocaleString(undefined, {minimumFractionDigits: 8, maximumFractionDigits: 8})
-            $("#priceBTC").text(btc)
+    function getPriceAPI(call) {
+        return Promise.resolve($.ajax({
+            url: "https://api.coingecko.com/api/v3/simple/price?ids=microbitcoin&vs_currencies=" + call,
+            dataType: 'json',
+            type: 'GET'
+        }))
+    }
+
+    function getPriceUSD() {
+        getPriceAPI("usd").then(function(data) {
+            var usd = data.microbitcoin.usd
             $("#priceUSD").text(usd)
+        })
+    }
+
+    function getPriceBTC() {
+        getPriceAPI("btc").then(function(data) {
+            var btc = Number(data.microbitcoin.btc).toLocaleString(undefined, {minimumFractionDigits: 8, maximumFractionDigits: 8})
+            $("#priceBTC").text(btc)
         })
     }
 
@@ -68,7 +85,8 @@ window.onload = function (){
         getBlockHeight()
         getNetHash()
         getSupply()
-        getPrice()
+        getPriceUSD()
+        getPriceBTC()
     }, 3000)
 
     setChainInfoLang()
