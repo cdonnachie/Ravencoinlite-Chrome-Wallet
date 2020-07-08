@@ -22,60 +22,17 @@ window.onload = function() {
     apiget = localStorage.getItem("apiSet")
 
     // Set history page to open to explorer & sets placeholder to testnet or mainnet prefix
-    /*if (apiget == "mainnet" || apiget == null) {
-        api = "https://api.mbc.wiki"
-        inputPlaceholder.attr("placeholder", "mbc1q...")
-        href = "https://sugarchain.org/explorer/#/address/" + address
-    }
-    else if (apiget == "testnet"){
-        api = "https://api.mbc.wiki/test"
-        inputPlaceholder.attr("placeholder", "tugar1q...")
-        href = "https://sugar.wtf/#/address/" + address
-    }*/
+
     api = "https://api.mbc.wiki"
 
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + address
     inputPlaceholder.attr("placeholder", "mbc1q...")
 
     $("#history").attr("href", href)
-    //getSendAPI()
 }
 
 var errororsuccess
-/*function getSendAPI() {
-    // Set Network config according to Endpoint selection
-    if (localStorage.getItem("api") == "https://api.sugarchain.org" || localStorage.getItem("api") == null){
-        netconfig = {					
-           'network': {
-                'messagePrefix': '\x19Bitcoin Signed Message:\n',
-                'bip32': {
-                    'public': 0x0488b21e,
-                    'private': 0x0488ade4
-                },
-                'bech32': 'mbc',
-                'pubKeyHash': 0x1A,
-                'scriptHash': 0x33,
-                'wif': 0x80
-            }
-        }
-    }
-      
-    else if (localStorage.getItem("api") == "https://api-testnet.sugarchain.org") {
-        netconfig = {					
-           'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
-                'bip32': {
-                    'public': 0x0488b21e,
-                    'private': 0x0488ade4
-                },
-               'bech32': 'tugar',
-               'pubKeyHash': 0x42,
-               'scriptHash': 0x80,
-                'wif': 0xEF
-            }
-        }
-    }
-}*/
+
 var netconfig = {
     'network': {
         'messagePrefix': '\x19Bitcoin Signed Message:\n',

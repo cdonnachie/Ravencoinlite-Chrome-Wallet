@@ -25,8 +25,8 @@ var lang = {
 
     'id': {
         // Page text
-        'create-wallet-button': "Dompet Membuat",
-        'import-wallet-button': "Dompet Impor",
+        'create-wallet-button': "Membuat Dompet",
+        'import-wallet-button': "Impor Dompet",
     },
 
     'es': {

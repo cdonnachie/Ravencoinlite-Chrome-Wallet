@@ -11,57 +11,13 @@ window.onload = function() {
 
     setMainLang()
 
-    //var apiget = localStorage.getItem("apiSet")
-
     // Sets History Tab to open to explorer
-    /*if (apiget == "mainnet" || apiget == null) {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
-    }
-    else if (apiget == "testnet") {
-        href = "https://sugar.wtf/#/address/" + getaddress
-    }*/
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
 
     $("#history").attr("href", href)
 
-    //getMainAPI()
-
 }
 
-/*function getMainAPI() {
-    // Set Network config according to Endpoint selection
-    if (localStorage.getItem("api") == "https://api.sugarchain.org" || localStorage.getItem("api") == null){
-        netconfig = {					
-           'network': {
-                'messagePrefix': '\x19Bitcoin Signed Message:\n',
-                'bip32': {
-                    'public': 0x0488b21e,
-                    'private': 0x0488ade4
-                },
-                'bech32': 'mbc',
-                'pubKeyHash': 0x1A,
-                'scriptHash': 0x33,
-                'wif': 0x80
-            }
-        }
-    }
-    
-    else if (localStorage.getItem("api") == "https://api-testnet.sugarchain.org") {
-        netconfig = {					
-            'network': {
-                'messagePrefix': '\x19Sugarchain Signed Message:\n',
-                'bip32': {
-                    'public': 0x0488b21e,
-                    'private': 0x0488ade4
-                },
-                'bech32': 'tugar',
-                'pubKeyHash': 0x42,
-                'scriptHash': 0x80,
-                'wif': 0xEF
-            }
-        }
-    }
-}*/
 var netconfig = {
     'network': {
         'messagePrefix': '\x19Bitcoin Signed Message:\n',
@@ -110,12 +66,6 @@ $("#generateAddress").click(function() {
     var apiget = localStorage.getItem("apiSet")
 
     // Sets History Tab to open to explorer
-    /*if (apiget == "mainnet") {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
-    }
-    else if (apiget == "testnet") {
-        href = "https://sugar.wtf/#/address/" + getaddress
-    }*/
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
 
     $("#history").attr("href", href)

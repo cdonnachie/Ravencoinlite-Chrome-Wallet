@@ -6,22 +6,10 @@ window.onload = function (){
 
     apiget = localStorage.getItem("apiSet")
 
-    // Set history page to open to explorer according to mainnet or testnet & set ticker according to mainnet or testnet
-    /*if (apiget == "mainnet" || apiget == null) {
-        api = "https://api.mbc.wiki"
-        prefix = "MBC"
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
-        $("#history").attr("href", href)
-    }
-    else if (apiget == "testnet"){
-        api = "https://api.mbc.wiki/test"
-        prefix = "TMBC"
-        href = "https://sugar.wtf/#/" + getaddress
-        $("#history").attr("href", href)
-    }*/
     var api = "https://api.mbc.wiki"
     var prefix = "MBC"
 
+    // Set history page to open to explorer
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
 
     $("#history").attr("href", href)

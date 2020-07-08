@@ -1,4 +1,3 @@
-//var selectedEndpoint = document.getElementById("endpointSelect")
 window.onload = function() {
     var getaddress = localStorage.getItem("address")
     
@@ -7,48 +6,12 @@ window.onload = function() {
 
     setSettingsLang()
 
-    var apiget = localStorage.getItem("apiSet")
-
-    // Sets History Tab to open to explorer according to testnet or mainnet
-    /*if (apiget == "mainnet" || apiget == null) {
-        href = "https://sugarchain.org/explorer/#/address/" + getaddress
-    }
-    else if (apiget == "testnet"){
-        href = "https://sugar.wtf/#/address/" + getaddress
-    }*/
+    // Sets history tab to open to explorer
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
 
     $("#history").attr("href", href)
 
-    /*if (apiget == null) {
-        selectedEndpoint.value = "mainnet"
-    }
-    else {
-        selectedEndpoint.value = localStorage.getItem("apiSet")
-    }*/
 }
-
-/*selectedEndpoint.onchange = function () {
-    localStorage.setItem("apiSet", this.value)
-    // Set API on change
-    setAPI()
-    localStorage.removeItem("address")
-    document.location.reload()
-}
-
-var mainnet = "https://api.sugarchain.org"
-var testnet = "https://api-testnet.sugarchain.org"
-// Set the api in local storage
-function setAPI() {
-    var apiSet = localStorage.getItem("apiSet")
-
-    if (apiSet == "mainnet") {
-        localStorage.setItem("api", mainnet)
-    }
-    else if (apiSet == "testnet") {
-        localStorage.setItem("api", testnet)
-    }
-}*/
 
 // Clear Local Storage (WIF, Address, reset overlay.html and reset endpoint)
 $("#logoutButton").click(function (){
