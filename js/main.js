@@ -63,8 +63,6 @@ $("#generateAddress").click(function() {
 
     var getaddress = localStorage.getItem("address")
 
-    var apiget = localStorage.getItem("apiSet")
-
     // Sets History Tab to open to explorer
     var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
 

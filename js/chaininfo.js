@@ -1,4 +1,3 @@
-var href
 window.onload = function (){
     var getaddress = localStorage.getItem("address")
     // Set overlay.js to open to chain info page
