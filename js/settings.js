@@ -7,7 +7,7 @@ window.onload = function() {
     setSettingsLang()
 
     // Sets history tab to open to explorer
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+    var href = "http://explorer.ravencoinlite.org/address/" + getaddress
 
     $("#history").attr("href", href)
 
