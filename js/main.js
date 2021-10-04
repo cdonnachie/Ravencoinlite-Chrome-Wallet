@@ -12,7 +12,7 @@ window.onload = function() {
     setMainLang()
 
     // Sets History Tab to open to explorer
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+    var href = "https://explorer.ravencoinlite.org/address/" + getaddress
 
     $("#history").attr("href", href)
 
@@ -64,7 +64,7 @@ $("#generateAddress").click(function() {
     var getaddress = localStorage.getItem("address")
 
     // Sets History Tab to open to explorer
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+    var href = "https://explorer.ravencoinlite.org/address/" + getaddress
 
     $("#history").attr("href", href)
 })

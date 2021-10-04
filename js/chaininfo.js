@@ -5,11 +5,11 @@ window.onload = function (){
 
     apiget = localStorage.getItem("apiSet")
 
-    var api = "https://api.mbc.wiki"
-    var prefix = "MBC"
+    var api = "https://api.ravencoinlite.org"
+    var prefix = "RVL"
 
     // Set history page to open to explorer
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+    var href = "https://explorer.ravencoinlite.org/address/" + getaddress
 
     $("#history").attr("href", href)
 
@@ -33,7 +33,12 @@ window.onload = function (){
         apiCall("/info").then(function(data) {
             var gethash = data.result.nethash
             var hash = gethash / 1000000
-            $("#netHashrate").text(hash.toFixed(2) + " MH/s")
+            if(hash <= 1000) {
+                $("#netHashrate").text(hash.toFixed(2) + " MH/s")
+            } else {
+                var hash = hash / 1000
+                $("#netHashrate").text(hash.toFixed(2) + " GH/s")
+            }
         })
     }
 
@@ -41,13 +46,13 @@ window.onload = function (){
         apiCall("/supply").then(function(data) {
             var getsupply = data.result.supply
             var supply = getsupply / 10000
-            $("#circSupply").text(supply + " " + prefix)
+            $("#circSupply").text(supply.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + " " + prefix)
         })
     }
 
     function getPriceAPI(call) {
         return Promise.resolve($.ajax({
-            url: "https://api.coingecko.com/api/v3/simple/price?ids=microbitcoin&vs_currencies=" + call,
+            url: "https://www.exbitron.com/api/v2/peatio/public/markets/rvlusdt/tickers",
             dataType: 'json',
             type: 'GET'
         }))
@@ -55,7 +60,7 @@ window.onload = function (){
 
     function getPriceUSD() {
         getPriceAPI("usd").then(function(data) {
-            var usd = data.microbitcoin.usd
+            var usd = data.ticker.last
             $("#priceUSD").text(usd)
         })
     }

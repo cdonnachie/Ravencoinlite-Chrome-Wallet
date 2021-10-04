@@ -23,9 +23,9 @@ window.onload = function() {
 
     // Set history page to open to explorer & sets placeholder to testnet or mainnet prefix
 
-    api = "https://api.mbc.wiki"
+    api = "https://api.ravencoinlite.org"
 
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + address
+    var href = "https://explorer.ravencoinlite.org/address/" + address
     inputPlaceholder.attr("placeholder", "mbc1q...")
 
     $("#history").attr("href", href)

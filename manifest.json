@@ -1,11 +1,11 @@
 {
-    "name": "Microbitcoin Wallet Extension",
+    "name": "Ravencoin Lite Wallet Extension",
     "version": "1.0",
     "manifest_version": 2,
-    "description": "Light Web Wallet for MicroBitcoin as a Chrome Extension.",
+    "description": "Light Web Wallet for Ravencoin Lite as a Chrome Extension.",
     "browser_action": {
         "default_popup": "overlay.html",
-        "default_title": "Microbitcoin Wallet",
+        "default_title": "Ravencoin Lite Wallet",
         "default_icon": "img/logo.png"
     },
     "icons": {

@@ -6,7 +6,7 @@ var api
 var prefix
 
 // Define variable to set QR Code
-var sugarqrcode = new QRCode(document.getElementById("sugarqr"), {
+var ravenliteqrcode = new QRCode(document.getElementById("ravenliteqr"), {
     width: 100,
     height: 100,
     position: "center"
@@ -30,10 +30,10 @@ window.onload = function (){
     inputPlaceholder.attr("placeholder", "mbc1q...")
     prefix = "MBC"
 
-    api = "https://api.mbc.wiki"
+    api = "https://api.ravencoinlite.org"
 
     // Sets history tab to open to explorer
-    var href = "https://microbitcoinorg.github.io/explorer/#/address/" + getaddress
+    var href = "https://explorer.ravencoinlite.org/address/" + getaddress
 
     $("#history").attr("href", href)
 
@@ -50,7 +50,7 @@ window.onload = function (){
         $("#currentBalance").text("loading...")
         apiCall().then(function(data) {
             var getbalance = data.result.balance
-            var balance = getbalance / 10000
+            var balance = getbalance / 100000000
             $("#currentBalance").text(balance + " " + prefix)
         })
     }
@@ -83,7 +83,7 @@ window.onload = function (){
                 qrcodegen()
             }
             else {
-                $("#currentBalance").text("Enter a valid Microbitcoin address")
+                $("#currentBalance").text("Enter a valid Ravencoin Lite address")
                 $("#currentRecieved").text("")
                 $("#currentSpent").text("")
             }
@@ -101,10 +101,10 @@ window.onload = function (){
 // Generate QR code
 function qrcodegen() {
     if (!document.getElementById("addressInput").value) {
-        sugarqrcode.makeCode("Enter an address")
+        ravenliteqrcode.makeCode("Enter an address")
     }
     else {
-        sugarqrcode.makeCode(document.getElementById("addressInput").value)
+        ravenliteqrcode.makeCode(document.getElementById("addressInput").value)
     }
 }
 
