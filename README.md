@@ -1,5 +1,5 @@
-# Sugarchain-Chrome-Wallet
-Light sugarchain Web wallet in the form of a chrome extension which utilises bitcoin.js and a simple REST API https://api.sugarchain.org
+# Ravencoin Lite-Chrome-Wallet
+Ravencoin Lite Web wallet in the form of a chrome extension which utilises bitcoin.js and a simple REST API https://api.ravencoinlite.org
 
 
 ### Installation
