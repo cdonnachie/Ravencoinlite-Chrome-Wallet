@@ -6,7 +6,7 @@ var api
 var prefix
 
 // Define variable to set QR Code
-var ravenliteqrcode = new QRCode(document.getElementById("ravenliteqr"), {
+var ravencoinliteqrcode = new QRCode(document.getElementById("ravencoinliteqr"), {
     width: 100,
     height: 100,
     position: "center"
@@ -27,8 +27,8 @@ window.onload = function (){
     
     apiget = localStorage.getItem("apiSet")
 
-    inputPlaceholder.attr("placeholder", "mbc1q...")
-    prefix = "MBC"
+    inputPlaceholder.attr("placeholder", "ravencoinlite...")
+    prefix = "RVL"
 
     api = "https://api.ravencoinlite.org"
 
@@ -101,10 +101,10 @@ window.onload = function (){
 // Generate QR code
 function qrcodegen() {
     if (!document.getElementById("addressInput").value) {
-        ravenliteqrcode.makeCode("Enter an address")
+        ravencoinliteqrcode.makeCode("Enter an address")
     }
     else {
-        ravenliteqrcode.makeCode(document.getElementById("addressInput").value)
+        ravencoinliteqrcode.makeCode(document.getElementById("addressInput").value)
     }
 }
 

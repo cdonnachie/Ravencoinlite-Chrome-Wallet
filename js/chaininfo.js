@@ -65,12 +65,6 @@ window.onload = function (){
         })
     }
 
-    function getPriceBTC() {
-        getPriceAPI("btc").then(function(data) {
-            var btc = Number(data.microbitcoin.btc).toLocaleString(undefined, {minimumFractionDigits: 8, maximumFractionDigits: 8})
-            $("#priceBTC").text(btc)
-        })
-    }
 
     // Loop functions to continuously show chain info
     setInterval(function() {
@@ -78,7 +72,6 @@ window.onload = function (){
         getNetHash()
         getSupply()
         getPriceUSD()
-        getPriceBTC()
     }, 3000)
 
     setChainInfoLang()
